@@ -1,0 +1,104 @@
+task.wait() until game:IsLoaded()
+ task.wait() until game.Players
+ task.wait() until game.Players.LocalPlayer
+ task.wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+ task.wait() until game.Players.LocalPlayer.PlayerGui:FindFirstChild("Main");
+_G.Team = "Pirate" -- Marine / Pirate
+getgenv().Script_Mode = "Kaitun_Script"
+_G.LogsDes = {
+    ["Enabled"] = false, -- à¹€à¸›à¸´à¸”à¸à¸²à¸£à¹ƒà¸Šà¹‰à¸‡à¸²à¸™
+    ["SendAlias"] = true, -- à¹€à¸›à¸´à¸”à¸à¸²à¸£à¸ªà¹ˆà¸‡ Alias
+    ["SendDescription"] = true, -- à¹€à¸›à¸´à¸”à¸à¸²à¸£à¸ªà¹ˆà¸‡ Des
+    ["DelaySend"] = 5 -- à¸§à¸´à¸™à¸²à¸—à¸µ
+}
+_G.WebHook = {
+    ["Enabled"] = false, -- à¹€à¸›à¸´à¸”à¸à¸²à¸£à¹ƒà¸Šà¹‰à¸‡à¸²à¸™
+    ["Url"] = "", -- à¸¥à¸´à¹‰à¸‡à¸„à¹Œà¹€à¸§à¹‡à¸šà¸®à¸¸à¸
+    ["Delay"] = 60 -- à¸§à¸´à¸™à¸²à¸—à¸µ
+}
+_G.MainSettings = {
+        ["EnabledHOP"] = true, -- à¹€à¸›à¸´à¸” HOP ( à¸¡à¸±à¸™à¹„à¸¡à¹ˆà¸¡à¸µà¸­à¸¢à¸¹à¹ˆà¸¥à¸°à¹ƒà¸ªà¹ˆà¸¡à¸²à¹€à¸—à¹ˆà¹† )
+        ['FPSBOOST'] = true, -- à¸ à¸²à¸žà¸à¸²à¸
+        ["FPSLOCKAMOUNT"] = 60, -- à¸ˆà¸³à¸™à¸§à¸™ FPS
+        ['WhiteScreen'] = false, -- à¸ˆà¸­à¸‚à¸²à¸§
+        ['CloseUI'] = false, -- à¸›à¸´à¸” Ui
+        ["NotifycationExPRemove"] = true, -- à¸¥à¸š ExP à¸—à¸µà¹ˆà¹€à¸”à¹‰à¸‡à¸•à¸­à¸™à¸†à¹ˆà¸²à¸¡à¸­à¸™
+        ['AFKCheck'] = 150, -- à¸–à¹‰à¸²à¸¢à¸·à¸™à¸™à¸´à¹ˆà¸‡à¹€à¸à¸´à¸™à¸§à¸´à¸—à¸µà¹ˆà¸•à¸±à¹‰à¸‡à¸¡à¸±à¸™à¸ˆà¸°à¸£à¸µà¹€à¸à¸¡
+        ["LockFragments"] = 20000, -- à¸¥à¹‡à¸­à¸„à¹€à¸‡à¸´à¸™à¸¡à¹ˆà¸§à¸‡
+        ["LockFruitsRaid"] = { -- à¸¥à¹‡à¸­à¸„à¸œà¸¥à¸—à¸µà¹ˆà¹„à¸¡à¹ˆà¹€à¸­à¸²à¹„à¸›à¸¥à¸‡à¸”à¸±à¸™
+            [1] = "Dough-Dough",
+            [2] = "Dragon-Dragon"
+        }
+    }
+_G.Fruits_Settings = { -- à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¸œà¸¥
+    ['Main_Fruits'] = {'Kitsune-Kitsune'}, -- à¸œà¸¥à¸«à¸¥à¸±à¸ à¸–à¹‰à¸²à¸¢à¸±à¸‡à¹„à¸¡à¹ˆà¹ƒà¸Šà¹ˆà¸„à¹ˆà¸²à¸—à¸µà¹ˆà¸•à¸±à¹‰à¸‡à¸¡à¸±à¸™à¸ˆà¸°à¸à¸´à¸™à¸ˆà¸™à¸à¸§à¹ˆà¸²à¸ˆà¸°à¹ƒà¸Šà¹ˆà¸«à¸£à¸·à¸­à¸‹à¸·à¹‰à¸­
+    ['Select_Fruits'] = {"Kitsune-Kitsune", "Dragon-Dragon"} -- à¸à¸´à¸™à¸«à¸£à¸·à¸­à¸‹à¸·à¹‰à¸­à¸•à¸­à¸™à¹„à¸¡à¹ˆà¸¡à¸µà¸œà¸¥
+}
+_G.Quests_Settings = { -- à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¹€à¸„à¸§à¸ªà¸«à¸¥à¸±à¸à¹†
+    ['Rainbow_Haki'] = true,
+    ["MusketeerHat"] = true,
+    ["PullLever"] = true,
+    ['DoughQuests_Mirror'] = {
+        ['Enabled'] = true,
+        ['UseFruits'] = true
+    }        
+}
+_G.Races_Settings = { -- à¸•à¸±à¹‰à¸‡à¸„à¹ˆà¸²à¹€à¸œà¹ˆà¸²
+    ['Race'] = {
+        ['EnabledEvo'] = true,
+        ["v2"] = true,
+        ["v3"] = true,
+        ["Races_Lock"] = {
+            ["Races"] = { -- Select Races U want
+                ["Mink"] = true,
+                ["Human"] = true,
+                ["Fishman"] = false
+            },
+            ["RerollsWhenFragments"] = 20000 -- Random Races When Your Fragments is >= Settings
+        }
+    }
+}
+_G.Settings_Melee = { -- à¸«à¸¡à¸±à¸”à¸—à¸µà¹ˆà¸ˆà¸°à¸—à¸³
+    ['Superhuman'] = true,
+    ['DeathStep'] = true,
+    ['SharkmanKarate'] = true,
+    ['ElectricClaw'] = true,
+    ['DragonTalon'] = true,
+    ['Godhuman'] = true
+}
+_G.FarmMastery_Settings = {
+    ['Melee'] = true,
+    ['Sword'] = true,
+    ['DevilFruits'] = false,
+    ['Select_Swords'] = {
+        ["AutoSettings"] = true, -- à¸–à¹‰à¸²à¹€à¸›à¸´à¸”à¸­à¸±à¸™à¸™à¸µà¹‰à¸¡à¸±à¸™à¸ˆà¸°à¹€à¸¥à¸·à¸­à¸à¸”à¸²à¸šà¹ƒà¸«à¹‰à¹€à¸­à¸‡à¸«à¸£à¸·à¸­à¸Ÿà¸²à¸£à¹Œà¸¡à¸—à¸¸à¸à¸”à¸²à¸šà¸™à¸±à¹ˆà¸™à¹€à¸­à¸‡
+        ["ManualSettings"] = { -- à¸–à¹‰à¸²à¸›à¸£à¸±à¸š AutoSettings à¹€à¸›à¹‡à¸™ false à¸¡à¸±à¸™à¸ˆà¸°à¸Ÿà¸²à¸£à¹Œà¸¡à¸”à¸²à¸šà¸—à¸µà¹ˆà¹€à¸¥à¸·à¸­à¸à¸•à¸£à¸‡à¸™à¸µà¹‰ à¸•à¸±à¸§à¸­à¸¢à¹ˆà¸²à¸‡à¸‚à¹‰à¸²à¸‡à¸¥à¹ˆà¸²à¸‡
+            "Saber",
+            "Buddy Sword"
+        }
+    }
+}
+_G.SwordSettings = { -- à¸”à¸²à¸šà¸—à¸µà¹ˆà¸ˆà¸°à¸—à¸³
+    ['Saber'] = true,
+    ["Pole"] = true,
+    ['MidnightBlade'] = true,
+    ['Shisui'] = false,
+    ['Saddi'] = false,
+    ['Wando'] = false,
+    ['Yama'] = true,
+    ['Rengoku'] = true,
+    ['Canvander'] = true,
+    ['BuddySword'] = true,
+    ['TwinHooks'] = true,
+    ['HallowScryte'] = true,
+    ['TrueTripleKatana'] = false,
+    ['CursedDualKatana'] = true
+}
+_G.SharkAnchor_Settings = {
+    ["Enabled_Farm"] = false,
+}
+_G.GunSettings = { -- à¸›à¸·à¸™à¸—à¸µà¹ˆà¸ˆà¸°à¸—à¸³
+    ['Kabucha'] = true,
+    ['SerpentBow'] = true,
+    ['SoulGuitar'] = true
+}
